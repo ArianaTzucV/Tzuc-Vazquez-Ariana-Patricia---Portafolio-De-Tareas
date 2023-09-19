@@ -1,0 +1,61 @@
+arbol_directorio.sh:
+#!bin/bash
+mkdir Arbol
+mkdir Arbol/dos
+mkdir Arbol/seis
+mkdir Arbolo/tres
+mkdir Arbol/tres/cuatro
+mkdir Arbol/tres/cuatro/cinco
+touch Arbol/seis/holamundo.sh
+touch Arbol/seis/holanombre.sh
+touch Arbol/tres/file3.txt
+mkdir Arbol/uno
+touch Arbol/uno/test.txt
+bash Arbol/seis/holamundo.sh
+bash Arbol/seis/holanombre.sh
+
+holaMundo.sh:
+#!/bin/bash
+echo -e "\033[40m\033[1;36m El Script dice: \033[0m"
+echo -e "\033[40m\033[1;36m \nHola Mundo \033[0m"
+
+saludoVariable.sh:
+#!/bin/bash
+echo -n "\033[40m\033[1;35m Por favor, ingresa tu nombre: \033[0m"
+NOMBRE=""
+read NOMBRE
+echo -e "\033[40m\033[1;34m Hola,${NOMBRE} \033[0m"
+
+Menu.sh:
+#!/bin/bash
+SCRIPT=""
+
+while true
+do
+      echo -e "\033[40m\033[36m MENU \033[0m"
+      banner MENU  
+      echo -e "1.-"\033[40m\033[35m Hola mundo \033[0m"
+      echo -e "2.-"\033[40m\033[35m Saludo con Variable \033[0m"
+      echo -e "3.-"\033[40m\033[35m Arbol \033[0m"
+      echo -e "x.-"\033[40m\033[1;34m Salir \033[0m\n"
+
+      echo -n "Selecciona un Script: "
+      read SCRIPT
+
+      case ${SCRIPT} in
+      1)
+              source holaMundo.sh
+              ;;
+      2)
+              source saludoVariable.sh
+              ;;
+      3)
+              source arbol_directorios.sh
+              ;;
+      x)
+              break
+              ;;
+      *)
+              echo "Esta opcion no es valida"
+      esac
+done
